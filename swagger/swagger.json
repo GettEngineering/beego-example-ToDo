@@ -1,0 +1,36 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Tasks Swagger",
+        "description": "My Tasks Swagger",
+        "version": "1.0.0",
+        "contact": {
+            "name": "Gett"
+        }
+    },
+    "schemes": [
+        "http"
+    ],
+    "paths": null,
+    "definitions": {
+        "models.Task": {
+            "title": "Task",
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "done": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{{ if .success  }}
+<div class="alert alert-info" role="alert">
+    <strong>Well done!</strong>{{ .success }}
+</div>
+{{ end }}
+{{ if .info  }}
+<div class="alert alert-info" role="alert">
+    <strong>Heads up!!</strong>{{ .info }}
+</div>
+{{ end }}
+{{ if .warning  }}
+<div class="alert alert-warning" role="alert">
+    <strong>Warning!</strong> {{ .warning }}
+</div>
+{{ end }}
+{{ if .error  }}
+<div class="alert alert-danger" role="alert">
+    <strong>Oh Snap!!!</strong>{{ .error }}
+</div>
+{{ end }}

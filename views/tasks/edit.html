@@ -1,0 +1,10 @@
+<div class="edit">
+    <h2>Editing task id: <span class="text-muted">{{.task.Id}}</span></h2>
+    <form action='{{urlfor "Tasks.Update"}}' class="metric-form" method="post">
+        {{template "tasks/_form.html" .}}
+    </form>
+    <form action='{{urlfor "Tasks.Delete"}}' method="post" class="pull-right">
+        <input name="id" hidden value="{{.task.Id}}">
+        <button type="submit" class="btn btn-primary">Delete</button>
+    </form>
+</div>

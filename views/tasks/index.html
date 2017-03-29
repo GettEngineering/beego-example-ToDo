@@ -1,0 +1,23 @@
+<h2>Your Tasks</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {{range $a, $val := .tasks}}
+    <tr>
+        <td>{{$val.Id}}</td>
+        <td> {{ $val.Title }} </td>
+        <td> {{ $val.Description }} </td>
+        <td><a href='{{urlfor "Tasks.Edit" "id" $val.Id}}' class="btn btn-info" role="button">Edit</a></td>
+    </tr>
+    {{end}}
+    </tbody>
+</table>
+
+<a href='{{urlfor "Tasks.New"}}' class="btn btn-primary">New</a>
