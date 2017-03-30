@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	//seed()
 	beego.Run()
 }
 

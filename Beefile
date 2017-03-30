@@ -1,0 +1,4 @@
+enable_reload: true
+enable_notification: true
+scripts:
+  gtest: APP_ENV=test APP_CONF_PATH=$(pwd)/conf go test -v -cover  $(go list ./... | grep -v /vendor/)

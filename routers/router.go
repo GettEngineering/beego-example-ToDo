@@ -7,18 +7,19 @@ package routers
 
 import (
 	"github.com/BorisBorshvesky/meetup/controllers"
-	"github.com/BorisBorshvesky/meetup/controllers/v1"
+	"github.com/BorisBorshvesky/meetup/controllers/apiv1"
 	"github.com/astaxie/beego"
 )
 
 func init() {
-	beego.NewNamespace("/api",
+	apiv1 := beego.NewNamespace("/api",
 		beego.NSNamespace("/v1",
 			beego.NSInclude(
-				&v1.TaskController{},
+				&apiv1.TaskController{},
 			),
 		),
 	)
+	beego.AddNamespace(apiv1)
 	beego.Router("/", &controllers.Tasks{}, "GET:Index")
 	beego.AutoRouter(&controllers.Tasks{})
 

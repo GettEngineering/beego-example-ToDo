@@ -12,10 +12,10 @@ import (
 )
 
 type Task struct {
-	Id          int64  `json:"id"`
-	Title       string `json:"title"`
-	Description string `json:"description"`
-	Done        bool   `json:"done"`
+	Id          int64  `json:"id" form:"id"`
+	Title       string `json:"title" form:"title"`
+	Description string `json:"description" form:"description"`
+	Done        bool   `json:"done" form:"done"`
 }
 
 const tasksKey = "tasks"

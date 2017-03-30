@@ -5,9 +5,105 @@ info:
   version: 1.0.0
   contact:
     name: Gett
+basePath: /api
 schemes:
 - http
-paths: {}
+paths:
+  /v1/:
+    get:
+      tags:
+      - v1
+      description: get all Tasks
+      operationId: TaskController.Get All
+      parameters:
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: number
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: number
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Task'
+        "404": {}
+    post:
+      tags:
+      - v1
+      description: create new task
+      operationId: TaskController.Create new
+      parameters:
+      - in: body
+        name: body
+        description: body for Task content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Task'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Task'
+        "400":
+          description: bad request
+  /v1/{id}:
+    get:
+      tags:
+      - v1
+      description: get Task by id
+      operationId: TaskController.Get task by id
+      parameters:
+      - in: path
+        name: id
+        description: Id of the task
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Task'
+        "400":
+          description: :id is empty
+    put:
+      tags:
+      - v1
+      description: update the Task
+      operationId: TaskController.update the task
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Task content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Task'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Task'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - v1
+      description: delete the Task
+      operationId: TaskController.delete the Task
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "400":
+          description: id is empty
 definitions:
   models.Task:
     title: Task
@@ -22,3 +118,7 @@ definitions:
         format: int64
       title:
         type: string
+tags:
+- name: v1
+  description: |2
+     TaskController operations for Task

@@ -5,6 +5,7 @@ import (
 
 	"github.com/BorisBorshvesky/meetup/models"
 	"github.com/astaxie/beego"
+	"github.com/k0kubun/pp"
 )
 
 type Tasks struct {
@@ -38,35 +39,25 @@ func (c *Tasks) New() {
 }
 
 func (c *Tasks) Update() {
-	c.Ctx.Request.ParseForm()
-	id, _ := c.GetInt64("id")
-	done, _ := c.GetBool("done")
-
-	task := models.Task{
-		Id:          id,
-		Description: c.GetString("description"),
-		Title:       c.GetString("title"),
-		Done:        done,
-	}
-
+	task := models.Task{}
+	c.ParseForm(&task)
+	pp.Println(task)
 	models.UpdateTask(task.Id, &task)
 	c.Redirect(beego.URLFor("Tasks.Index"), http.StatusFound)
 }
 
 func (c *Tasks) Create() {
-	c.Ctx.Request.ParseForm()
+	task := models.Task{}
+	c.ParseForm(&task)
 
-	task := models.Task{
-		Title:       c.GetString("title"),
-		Description: c.GetString("description"),
-	}
 	models.AddTask(&task)
 	c.Redirect(beego.URLFor("Tasks.Index"), http.StatusFound)
 }
 
 func (c *Tasks) Delete() {
-	c.Ctx.Request.ParseForm()
-	id, _ := c.GetInt64("id")
-	models.DeleteTask(id)
+	task := models.Task{}
+	c.ParseForm(&task)
+
+	models.DeleteTask(task.Id)
 	c.Redirect(beego.URLFor("Tasks.Index"), http.StatusFound)
 }
