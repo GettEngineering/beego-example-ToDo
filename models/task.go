@@ -3,12 +3,13 @@ package models
 import (
 	"encoding/json"
 
+	"github.com/BorisBorshvesky/meetup/lib/store"
+
 	"fmt"
 
 	"sort"
 
-	"github.com/BorisBorshvesky/meetup/lib/store"
-	"github.com/k0kubun/pp"
+	"log"
 )
 
 type Task struct {
@@ -40,7 +41,7 @@ func GetAllTasks(limit, offset int) (t []*Task, err error) {
 		var task *Task
 		err := json.Unmarshal([]byte(taskString), &task)
 		if err != nil {
-			pp.Println(err.Error())
+			log.Println(err.Error())
 		}
 		t = append(t, task)
 	}

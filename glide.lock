@@ -1,0 +1,42 @@
+hash: 21cc0976517fc690ccdb46f888f60b9a35ecbf12f806b88f9b2f06cd24f7aa6b
+updated: 2017-03-30T13:32:46.755945504+03:00
+imports:
+- name: github.com/astaxie/beego
+  version: 323a1c4214101331a4b71922c23d19b7409ac71f
+  subpackages:
+  - config
+  - context
+  - grace
+  - logs
+  - session
+  - toolbox
+  - utils
+- name: gopkg.in/bsm/ratelimit.v1
+  version: db14e161995a5177acef654cb0dd785e8ee8bc22
+- name: gopkg.in/redis.v4
+  version: c938162545c57136fa59879746bc65d0f1db3d1e
+  subpackages:
+  - internal
+  - internal/consistenthash
+  - internal/errors
+  - internal/hashtag
+  - internal/pool
+  - internal/proto
+testImports:
+- name: github.com/gopherjs/gopherjs
+  version: e34a5cd6a1bc7c4fde759f2d3039852fc68b5fcc
+  subpackages:
+  - js
+- name: github.com/jtolds/gls
+  version: 8ddce2a84170772b95dd5d576c48d517b22cac63
+- name: github.com/smartystreets/assertions
+  version: e60cfa771e3f4d18723a4119f1833898c9c62066
+  subpackages:
+  - internal/go-render/render
+  - internal/oglematchers
+- name: github.com/smartystreets/goconvey
+  version: 3c2572876754c4669ae7417b219f0b30a29b32c7
+  subpackages:
+  - convey
+  - convey/gotest
+  - convey/reporting

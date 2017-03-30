@@ -5,7 +5,6 @@ import (
 
 	"github.com/BorisBorshvesky/meetup/models"
 	"github.com/astaxie/beego"
-	"github.com/k0kubun/pp"
 )
 
 type Tasks struct {
@@ -41,7 +40,6 @@ func (c *Tasks) New() {
 func (c *Tasks) Update() {
 	task := models.Task{}
 	c.ParseForm(&task)
-	pp.Println(task)
 	models.UpdateTask(task.Id, &task)
 	c.Redirect(beego.URLFor("Tasks.Index"), http.StatusFound)
 }
