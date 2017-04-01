@@ -3,8 +3,8 @@ package controllers
 import (
 	"net/http"
 
-	"github.com/BorisBorshvesky/meetup/models"
 	"github.com/astaxie/beego"
+	"github.com/gettaxi/meetup/models"
 )
 
 type Tasks struct {

@@ -3,9 +3,8 @@ package apiv1
 import (
 	"encoding/json"
 
-	"github.com/BorisBorshvesky/meetup/models"
-
 	"github.com/astaxie/beego"
+	"github.com/gettaxi/meetup/models"
 )
 
 //  TaskController operations for Task

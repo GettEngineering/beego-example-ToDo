@@ -3,7 +3,7 @@ package models
 import (
 	"encoding/json"
 
-	"github.com/BorisBorshvesky/meetup/lib/store"
+	"github.com/gettaxi/meetup/lib/store"
 
 	"fmt"
 

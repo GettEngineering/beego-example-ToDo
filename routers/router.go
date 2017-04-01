@@ -6,9 +6,14 @@
 package routers
 
 import (
-	"github.com/BorisBorshvesky/meetup/controllers"
-	"github.com/BorisBorshvesky/meetup/controllers/apiv1"
+	"time"
+
+	"log"
+
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/context"
+	"github.com/gettaxi/meetup/controllers"
+	"github.com/gettaxi/meetup/controllers/apiv1"
 )
 
 func init() {
@@ -26,4 +31,17 @@ func init() {
 	beego.BConfig.WebConfig.DirectoryIndex = true
 	beego.BConfig.WebConfig.StaticDir["/swagger"] = "swagger"
 
+	initFilters()
+}
+
+func initFilters() {
+	beego.InsertFilter("/", beego.BeforeRouter, func(c *context.Context) {
+		c.Input.SetData("time", time.Now())
+	}, false)
+
+	beego.InsertFilter("/", beego.AfterExec, func(c *context.Context) {
+		if startTime, ok := c.Input.GetData("time").(time.Time); ok {
+			log.Println("execTime:", time.Now().Sub(startTime).Nanoseconds())
+		}
+	}, false)
 }

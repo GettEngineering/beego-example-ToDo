@@ -6,35 +6,35 @@ import (
 
 func init() {
 
-	beego.GlobalControllerRouter["github.com/BorisBorshvesky/meetup/controllers/apiv1:TaskController"] = append(beego.GlobalControllerRouter["github.com/BorisBorshvesky/meetup/controllers/apiv1:TaskController"],
+	beego.GlobalControllerRouter["github.com/gettaxi/meetup/controllers/apiv1:TaskController"] = append(beego.GlobalControllerRouter["github.com/gettaxi/meetup/controllers/apiv1:TaskController"],
 		beego.ControllerComments{
 			Method: "NewTask",
 			Router: `/`,
 			AllowHTTPMethods: []string{"post"},
 			Params: nil})
 
-	beego.GlobalControllerRouter["github.com/BorisBorshvesky/meetup/controllers/apiv1:TaskController"] = append(beego.GlobalControllerRouter["github.com/BorisBorshvesky/meetup/controllers/apiv1:TaskController"],
+	beego.GlobalControllerRouter["github.com/gettaxi/meetup/controllers/apiv1:TaskController"] = append(beego.GlobalControllerRouter["github.com/gettaxi/meetup/controllers/apiv1:TaskController"],
 		beego.ControllerComments{
 			Method: "GetTaskById",
 			Router: `/:id`,
 			AllowHTTPMethods: []string{"get"},
 			Params: nil})
 
-	beego.GlobalControllerRouter["github.com/BorisBorshvesky/meetup/controllers/apiv1:TaskController"] = append(beego.GlobalControllerRouter["github.com/BorisBorshvesky/meetup/controllers/apiv1:TaskController"],
+	beego.GlobalControllerRouter["github.com/gettaxi/meetup/controllers/apiv1:TaskController"] = append(beego.GlobalControllerRouter["github.com/gettaxi/meetup/controllers/apiv1:TaskController"],
 		beego.ControllerComments{
 			Method: "GetAll",
 			Router: `/`,
 			AllowHTTPMethods: []string{"get"},
 			Params: nil})
 
-	beego.GlobalControllerRouter["github.com/BorisBorshvesky/meetup/controllers/apiv1:TaskController"] = append(beego.GlobalControllerRouter["github.com/BorisBorshvesky/meetup/controllers/apiv1:TaskController"],
+	beego.GlobalControllerRouter["github.com/gettaxi/meetup/controllers/apiv1:TaskController"] = append(beego.GlobalControllerRouter["github.com/gettaxi/meetup/controllers/apiv1:TaskController"],
 		beego.ControllerComments{
 			Method: "Put",
 			Router: `/:id`,
 			AllowHTTPMethods: []string{"put"},
 			Params: nil})
 
-	beego.GlobalControllerRouter["github.com/BorisBorshvesky/meetup/controllers/apiv1:TaskController"] = append(beego.GlobalControllerRouter["github.com/BorisBorshvesky/meetup/controllers/apiv1:TaskController"],
+	beego.GlobalControllerRouter["github.com/gettaxi/meetup/controllers/apiv1:TaskController"] = append(beego.GlobalControllerRouter["github.com/gettaxi/meetup/controllers/apiv1:TaskController"],
 		beego.ControllerComments{
 			Method: "Delete",
 			Router: `/:id`,

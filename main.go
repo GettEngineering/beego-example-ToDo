@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/BorisBorshvesky/meetup/models"
-	_ "github.com/BorisBorshvesky/meetup/routers"
+	_ "github.com/gettaxi/meetup/routers"
 	"github.com/astaxie/beego"
+	"github.com/gettaxi/meetup/models"
 )
 
 func main() {
