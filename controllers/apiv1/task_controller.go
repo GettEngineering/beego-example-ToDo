@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 
 	"github.com/astaxie/beego"
-	"github.com/gettaxi/meetup/models"
+	"github.com/gettaxi/beego-example-ToDo/models"
 )
 
 //  TaskController operations for Task

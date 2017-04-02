@@ -3,7 +3,7 @@ package models
 import (
 	"encoding/json"
 
-	"github.com/gettaxi/meetup/lib/store"
+	"github.com/gettaxi/beego-example-ToDo/lib/store"
 
 	"fmt"
 
@@ -16,7 +16,6 @@ type Task struct {
 	Id          int64  `json:"id" form:"id"`
 	Title       string `json:"title" form:"title"`
 	Description string `json:"description" form:"description"`
-	Done        bool   `json:"done" form:"done"`
 }
 
 const tasksKey = "tasks"

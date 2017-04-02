@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/astaxie/beego"
-	"github.com/gettaxi/meetup/models"
+	"github.com/gettaxi/beego-example-ToDo/models"
 )
 
 type Tasks struct {

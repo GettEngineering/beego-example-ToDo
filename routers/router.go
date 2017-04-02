@@ -12,9 +12,11 @@ import (
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/context"
-	"github.com/gettaxi/meetup/controllers"
-	"github.com/gettaxi/meetup/controllers/apiv1"
+	"github.com/gettaxi/beego-example-ToDo/controllers"
+	"github.com/gettaxi/beego-example-ToDo/controllers/apiv1"
 )
+
+const root  = "/"
 
 func init() {
 	apiv1 := beego.NewNamespace("/api",
@@ -25,7 +27,7 @@ func init() {
 		),
 	)
 	beego.AddNamespace(apiv1)
-	beego.Router("/", &controllers.Tasks{}, "GET:Index")
+	beego.Router(root, &controllers.Tasks{}, "GET:Index")
 	beego.AutoRouter(&controllers.Tasks{})
 
 	beego.BConfig.WebConfig.DirectoryIndex = true
@@ -35,16 +37,14 @@ func init() {
 }
 
 func initFilters() {
-	beego.InsertFilter("/", beego.BeforeRouter, func(c *context.Context) {
+	beego.InsertFilter(root, beego.BeforeRouter, func(c *context.Context) {
 		c.Input.SetData("time", time.Now())
 	}, false)
 
-	beego.InsertFilter("/", beego.AfterExec, func(c *context.Context) {
+	beego.InsertFilter(root, beego.AfterExec, func(c *context.Context) {
 		if startTime, ok := c.Input.GetData("time").(time.Time); ok {
 			log.Println("execTime:", time.Now().Sub(startTime).Nanoseconds())
 		}
 	}, false)
 
-
-	//beego.InsertFilter("/secure", beego.BeforeRouter, basicA)
 }
