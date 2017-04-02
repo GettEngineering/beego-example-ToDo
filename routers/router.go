@@ -44,4 +44,7 @@ func initFilters() {
 			log.Println("execTime:", time.Now().Sub(startTime).Nanoseconds())
 		}
 	}, false)
+
+
+	//beego.InsertFilter("/secure", beego.BeforeRouter, basicA)
 }

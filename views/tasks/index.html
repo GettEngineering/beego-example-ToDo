@@ -6,7 +6,6 @@
         <th>Title</th>
         <th>Description</th>
         <th></th>
-        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -15,8 +14,8 @@
         <td>{{$val.Id}}</td>
         <td> {{ $val.Title }} </td>
         <td> {{ $val.Description }} </td>
-        <td><a href='{{urlfor "Tasks.Edit" "id" $val.Id}}' class="btn btn-info" role="button">Edit</a></td>
-        <td><form action='{{urlfor "Tasks.Delete"}}' method="post" class="pull-right">
+        <td><a href='{{urlfor "Tasks.Edit" "id" $val.Id}}' class="btn btn-info" role="button">Edit</a>
+        <form action='{{urlfor "Tasks.Delete"}}' method="post" class="pull-right">
             <input name="id" hidden value="{{.Id}}">
             <button type="submit" class="btn btn-primary">Delete</button>
         </form></td>

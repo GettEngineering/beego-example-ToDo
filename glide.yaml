@@ -1,4 +1,4 @@
-package: github.com/BorisBorshvesky/meetup
+package: github.com/gettaxi/meetup
 import:
 - package: github.com/astaxie/beego
   subpackages:
