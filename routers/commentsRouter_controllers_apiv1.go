@@ -9,35 +9,35 @@ func init() {
 	beego.GlobalControllerRouter["github.com/gettaxi/beego-example-ToDo/controllers/apiv1:TaskController"] = append(beego.GlobalControllerRouter["github.com/gettaxi/beego-example-ToDo/controllers/apiv1:TaskController"],
 		beego.ControllerComments{
 			Method: "NewTask",
-			Router: `/`,
+			Router: `/task/`,
 			AllowHTTPMethods: []string{"post"},
 			Params: nil})
 
 	beego.GlobalControllerRouter["github.com/gettaxi/beego-example-ToDo/controllers/apiv1:TaskController"] = append(beego.GlobalControllerRouter["github.com/gettaxi/beego-example-ToDo/controllers/apiv1:TaskController"],
 		beego.ControllerComments{
 			Method: "GetTaskById",
-			Router: `/:id`,
+			Router: `/task/:id`,
 			AllowHTTPMethods: []string{"get"},
 			Params: nil})
 
 	beego.GlobalControllerRouter["github.com/gettaxi/beego-example-ToDo/controllers/apiv1:TaskController"] = append(beego.GlobalControllerRouter["github.com/gettaxi/beego-example-ToDo/controllers/apiv1:TaskController"],
 		beego.ControllerComments{
 			Method: "GetAll",
-			Router: `/`,
+			Router: `/task/`,
 			AllowHTTPMethods: []string{"get"},
 			Params: nil})
 
 	beego.GlobalControllerRouter["github.com/gettaxi/beego-example-ToDo/controllers/apiv1:TaskController"] = append(beego.GlobalControllerRouter["github.com/gettaxi/beego-example-ToDo/controllers/apiv1:TaskController"],
 		beego.ControllerComments{
 			Method: "Put",
-			Router: `/:id`,
+			Router: `/task/:id`,
 			AllowHTTPMethods: []string{"put"},
 			Params: nil})
 
 	beego.GlobalControllerRouter["github.com/gettaxi/beego-example-ToDo/controllers/apiv1:TaskController"] = append(beego.GlobalControllerRouter["github.com/gettaxi/beego-example-ToDo/controllers/apiv1:TaskController"],
 		beego.ControllerComments{
 			Method: "Delete",
-			Router: `/:id`,
+			Router: `/task/:id`,
 			AllowHTTPMethods: []string{"delete"},
 			Params: nil})
 

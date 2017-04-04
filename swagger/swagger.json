@@ -13,7 +13,7 @@
         "http"
     ],
     "paths": {
-        "/v1/": {
+        "/v1/task/": {
             "get": {
                 "tags": [
                     "v1"
@@ -72,7 +72,7 @@
                 }
             }
         },
-        "/v1/{id}": {
+        "/v1/task/{id}": {
             "get": {
                 "tags": [
                     "v1"
@@ -167,9 +167,6 @@
             "properties": {
                 "description": {
                     "type": "string"
-                },
-                "done": {
-                    "type": "boolean"
                 },
                 "id": {
                     "type": "integer",

@@ -9,7 +9,7 @@ basePath: /api
 schemes:
 - http
 paths:
-  /v1/:
+  /v1/task/:
     get:
       tags:
       - v1
@@ -47,7 +47,7 @@ paths:
             $ref: '#/definitions/models.Task'
         "400":
           description: bad request
-  /v1/{id}:
+  /v1/task/{id}:
     get:
       tags:
       - v1
@@ -111,8 +111,6 @@ definitions:
     properties:
       description:
         type: string
-      done:
-        type: boolean
       id:
         type: integer
         format: int64

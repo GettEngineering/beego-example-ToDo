@@ -9,7 +9,7 @@ import (
 
 //  TaskController operations for Task
 type TaskController struct {
-	beego.Controller
+	beego.Controller  //embedding beego.controller!!!
 }
 
 // Create new task
@@ -18,7 +18,7 @@ type TaskController struct {
 // @Param	body		body 	models.Task	true	"body for Task content"
 // @Success 200 {object} models.Task
 // @Failure 400 bad request
-// @router / [post]
+// @router /task/ [post]
 func (c *TaskController) NewTask() {
 	var v models.Task
 	json.Unmarshal(c.Ctx.Input.RequestBody, &v)
@@ -39,9 +39,11 @@ func (c *TaskController) NewTask() {
 // @Param	id		path 	string	true	"Id of the task"
 // @Success 200 {object} models.Task
 // @Failure 400 :id is empty
-// @router /:id [get]
+// @router /task/:id [get]
 func (c *TaskController) GetTaskById() {
-	id, err := c.GetInt64("id")
+	// c. functions
+	// c.Ctx.
+	id, err := c.GetInt64(":id")
 	if err != nil {
 		c.Ctx.Output.SetStatus(400)
 		c.Data["json"] = err.Error()
@@ -66,7 +68,7 @@ func (c *TaskController) GetTaskById() {
 // @Param	offset	query	number	false	"Start position of result set. Must be an integer"
 // @Success 200 {object} models.Task
 // @Failure 404
-// @router / [get]
+// @router /task/ [get]
 func (c *TaskController) GetAll() {
 	limit, _ := c.GetInt("limit")
 	offset, _ := c.GetInt("offset")
@@ -88,7 +90,7 @@ func (c *TaskController) GetAll() {
 // @Param	body		body 	models.Task	true	"body for Task content"
 // @Success 200 {object} models.Task
 // @Failure 403 :id is not int
-// @router /:id [put]
+// @router /task/:id [put]
 func (c *TaskController) Put() {
 	id, err := c.GetInt64("id")
 	if err != nil {
@@ -115,7 +117,7 @@ func (c *TaskController) Put() {
 // @Param	id		path 	string	true		"The id you want to delete"
 // @Success 200 {string} delete success!
 // @Failure 400 id is empty
-// @router /:id [delete]
+// @router /task/:id [delete]
 func (c *TaskController) Delete() {
 	id, err := c.GetInt64("id")
 	if err != nil {

@@ -12,6 +12,7 @@ type Tasks struct {
 }
 
 // Index - Main page
+// the convention of files is overidable
 func (c *Tasks) Index() {
 	tasks, err := models.GetAllTasks(0, 0)
 	if err != nil {

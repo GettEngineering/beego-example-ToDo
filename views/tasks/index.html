@@ -11,7 +11,7 @@
     <tbody>
     {{range $a, $val := .tasks}}
     <tr>
-        <td>{{$val.Id}}</td>
+        <td> {{ $val.Id }}</td>
         <td> {{ $val.Title }} </td>
         <td> {{ $val.Description }} </td>
         <td><a href='{{urlfor "Tasks.Edit" "id" $val.Id}}' class="btn btn-info" role="button">Edit</a>
